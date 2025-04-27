@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffffff;
+    
+}
+/* For WebKit browsers (Chrome, Safari, Edge) */
+.scrollable1::-webkit-scrollbar {
+    height: 7px; 
+    width: 7px; /* Add if you want vertical scrollbars to be thin too */
+}
+
+.scrollable1::-webkit-scrollbar-thumb {
+    background-color: #3a57ea; 
+    border-radius: 2px;
+}
+
+.scrollable1::-webkit-scrollbar-thumb:hover {
+    background-color: #2a47da; /* Optional: color change on hover */
+}
+
+/* For Firefox */
+.scrollable1 {
+    scrollbar-width: thin;
+    scrollbar-color: #3a57ea transparent;
+}
