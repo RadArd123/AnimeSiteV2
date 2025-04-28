@@ -16,7 +16,24 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({origin: "http://localhost:5173", credentials: true}));
+const allowedOrigins = [
+    'http://localhost:5173', // local dev
+    'https://animesitev2-frontend.onrender.com', // deployed frontend
+  ];
+  
+  const corsOptions = {
+    origin: function (origin, callback) {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true); // Allow the request
+      } else {
+        callback(new Error('Not allowed by CORS')); // Block the request
+      }
+    },
+    credentials: true, // This allows cookies to be sent
+  };
+  
+  // Apply CORS middleware
+  app.use(cors(corsOptions));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/anime", animeRoutes);
