@@ -2,7 +2,7 @@ import  {create} from "zustand";
 import  axios from "axios";
 
 const API_URL = process.env.NODE_ENV === "production"
-  ? "https://animesitev2.onrender.com//api/auth"
+  ? "https://animesitev2.onrender.com/api/auth"
   : "http://localhost:5000/api/auth";
 
 axios.defaults.withCredentials = true; // This is important for sending cookies with requests

@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 const API_URL = process.env.NODE_ENV === "production"
-  ? "https://animesitev2.onrender.com//api/anime"
+  ? "https://animesitev2.onrender.com/api/anime"
   : "http://localhost:5000/api/anime";
   
 axios.defaults.withCredentials = true;
