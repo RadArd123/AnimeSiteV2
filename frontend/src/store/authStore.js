@@ -59,7 +59,7 @@ export const useAuthStore = create((set)=>({
             const response = await axios.get(`${API_URL}/isAdmin`);
             set({message: response.data.message, isCheckingAuth: false, isAdmin: true});
         }catch(err){
-            set({error: err.response.data.message || "Error checking admin status",  isAdmin: false});
+            set({error: err.response?.data?.message || "Error checking admin status",  isAdmin: false});
             throw err;
         }
     }

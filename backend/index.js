@@ -19,9 +19,7 @@ app.use(cookieParser());
 
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://animesitev2-frontend.onrender.com"],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    origin: ["http://localhost:5173", "https://anime-site-v2-seven.vercel.app"],
     credentials: true
 }));
 
