@@ -7,8 +7,7 @@ import { FiMenu, FiX } from "react-icons/fi"; // For hamburger menu
 
 const Navbar = () => {
   const { logout, fetchAdmin, isAdmin, isAuthenticated } = useAuthStore();
-  const [showFavorites, setShowFavorites] = useState(false);
-  const [showWatchlist, setShowWatchlist] = useState(false);
+ 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // For mobile menu
   const navigate = useNavigate();
 
@@ -73,58 +72,15 @@ const Navbar = () => {
           </a>
           <button
             className="text-sm font-semibold hover:text-purple-500"
-            onClick={toggleFavorites}
+            onClick={() => navigate("/favorites")}
           >
             Anime
           </button>
-          {showFavorites && (
-            <div className="bg-gray-700 p-2 rounded w-48">
-              {favorites?.length > 0 ? (
-                favorites.map((anime, index) => (
-                  <div key={index} className="flex justify-between items-center py-1">
-                    <Link to={`/anime/${anime}`} className="hover:underline text-xs">
-                      {anime}
-                    </Link>
-                    <button
-                      onClick={() => removeFromFavorites(anime)}
-                      className="text-red-500 text-xs"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                ))
-              ) : (
-                <div className="text-xs">No favorite animes</div>
-              )}
-            </div>
-          )}
           <button
             className="text-sm font-semibold hover:text-purple-500"
-            onClick={toggleWatchlist}
-          >
+            onClick={()=>navigate("/watchlist")}>
             BookMarked
           </button>
-          {showWatchlist && (
-            <div className="bg-gray-700 p-2 rounded w-48">
-              {watchlist?.length > 0 ? (
-                watchlist.map((anime, index) => (
-                  <div key={index} className="flex justify-between items-center py-1">
-                    <Link to={`/anime/${anime}`} className="hover:underline text-xs">
-                      {anime}
-                    </Link>
-                    <button
-                      onClick={() => removeFromWatchlist(anime)}
-                      className="text-red-500 text-xs"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                ))
-              ) : (
-                <div className="text-xs">No items in watchlist</div>
-              )}
-            </div>
-          )}
           <button
             className="text-sm font-semibold"
             onClick={isAuthenticated ? handleLogout : () => navigate("/login")}

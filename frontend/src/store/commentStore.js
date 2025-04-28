@@ -3,7 +3,7 @@ import {create} from "zustand";
 import axios from "axios";
 
 
-const API_URL = "https://animesitev2-backend.onrender.com/api/comments";
+const API_URL = "http://localhost:5000/api/comments";
 
 axios.defaults.withCredentials = true;
 export const useCommentStore = create((set)=>({
